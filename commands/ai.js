@@ -46,7 +46,7 @@ module.exports = {
   name: 'ai',
   description: 'Interact with Mocha AI using text queries and image analysis',
   usage: 'ask a question, or send a reply question to an image.',
-  author: 'Messie Osango',
+  author: '',
 
   async execute(senderId, args, pageAccessToken, event) {
     let prompt = args.join(' ').trim() || 'Hello';
@@ -93,7 +93,7 @@ module.exports = {
         await sendMessage(senderId, { text: chunk }, pageAccessToken);
       }
     } catch (zetsuErr) {
-      console.warn("Zetsu a échoué, tentative avec Gemini...");
+      console.warn("Api 1 a échoué, tentative avec Gemini...");
       try {
         const geminiResponse = await axios.post(
           `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDIGG4puPZ6kPIUR0CSD6fOgh6PNWqYFuM`,
